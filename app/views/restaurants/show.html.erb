@@ -1,1 +1,19 @@
-<h1> show </h1>
+
+<h1><%= @restaurant.name %></h1>
+ <p> <%= @restaurant.address %> </p>
+ <p> <%= @restaurant.phone_number %> </p>
+ <p> <%= @restaurant.category %></p>
+ <ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %></li>
+  <% end %>
+</ul>
+
+
+<hr>
+<%= link_to 'Leave a review', new_restaurant_review_path(@restaurant) %>
+<br>
+<br>
+<%= link_to restaurants_path do %>
+  <i class="fa fa-history"></i> Back to all restaurants
+<% end %>
